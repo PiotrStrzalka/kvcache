@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	cache := kvcache.NewCache()
+	cache := kvcache.NewCache(kvcache.KvCacheConfig{})
 
 	cache.Set("pio", []byte("programmer"))
 

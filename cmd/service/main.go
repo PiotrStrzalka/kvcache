@@ -8,7 +8,7 @@ import (
 func main() {
 	//load some config
 
-	cache := kvcache.NewCache()
+	cache := kvcache.NewCache(kvcache.KvCacheConfig{})
 
 	rest.Run(cache)
 }
