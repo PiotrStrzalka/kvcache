@@ -13,6 +13,8 @@ type access interface {
 	Set(key string, value []byte) error
 }
 
+var cacheClient access
+
 var (
 	protocol, address string
 	key, value        string
@@ -81,19 +83,24 @@ func init() {
 	rootCmd.AddCommand(setCmd)
 }
 
-var cacheClient access
-
 func createClient(cmd *cobra.Command, args []string) {
 	log.Printf("protocol %q and address validation %q\n", protocol, address)
 	//address regex
-
+	var err error
 	if protocol == "rest" {
-		cacheClient = client.NewRest(address)
+		cacheClient, err = client.NewRest(address)
+
+		if err != nil {
+			log.Fatal("Cannot create Rest client")
+		}
 		return
 	}
 
 	if protocol == "grpc" {
-		cacheClient = client.NewGrpc(address)
+		cacheClient, err = client.NewGrpc(address)
+		if err != nil {
+			log.Fatal("Cannot create grpc client")
+		}
 		return
 	}
 

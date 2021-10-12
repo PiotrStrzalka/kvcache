@@ -1,4 +1,4 @@
-package rest
+package service
 
 import (
 	"bytes"
@@ -18,7 +18,7 @@ func init() {
 
 var cache *kvcache.Kvcache
 
-func Run(c *kvcache.Kvcache) {
+func RunRest(c *kvcache.Kvcache) {
 	host := "0.0.0.0:5010"
 
 	cache = c

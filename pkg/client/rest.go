@@ -13,8 +13,8 @@ type Rest struct {
 	addr string
 }
 
-func NewRest(addr string) *Rest {
-	return &Rest{addr: addr}
+func NewRest(addr string) (*Rest, error) {
+	return &Rest{addr: addr}, nil
 }
 
 type KeyValue struct {

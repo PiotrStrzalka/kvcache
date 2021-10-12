@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/piotrstrzalka/kvcache/pkg/kvcache"
-	rest "github.com/piotrstrzalka/kvcache/pkg/service"
+	"github.com/piotrstrzalka/kvcache/pkg/service"
 )
 
 func main() {
@@ -10,5 +10,6 @@ func main() {
 
 	cache := kvcache.NewCache(kvcache.KvCacheConfig{})
 
-	rest.Run(cache)
+	// service.RunRest(cache)
+	service.RunGrpc(cache)
 }
