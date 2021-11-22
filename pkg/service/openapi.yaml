@@ -1,0 +1,41 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Kvcache REST API
+  description: Simple API to interact with kvcache service
+
+servers:
+  - url: http://localhost:5010
+
+paths:
+  /get:
+    get:
+      description: Gets specified data from cache
+      parameters:
+        - name: key
+          in: query
+          description: Defines what data to get
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Data found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  key:
+                    type: string
+                  value:
+                    type: string
+        '400':
+          description: Data cannot be found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+  

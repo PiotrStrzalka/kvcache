@@ -8,7 +8,7 @@ import (
 func main() {
 	//load some config
 
-	cache := kvcache.NewCache(kvcache.KvCacheConfig{})
+	cache := kvcache.NewCache(kvcache.KvCacheConfig{CacheStatus: true, CacheSizeLimit: 1024})
 
 	// service.RunRest(cache)
 	service.RunGrpc(cache)
