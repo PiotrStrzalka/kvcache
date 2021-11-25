@@ -11,5 +11,11 @@
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
 
-# Dependency directories (remove the comment below to include it)
-# vendor/
+#Workspace file
+workspace.code-workspace
+
+#Openapi generated go rest api implementation
+pkg/service/swagger/openapi.gen.go
+
+#Json version of openapi rest description
+pkg/service/swagger/swagger.json

@@ -37,3 +37,17 @@ go run cmd/cli/main.go set -p grpc -k testkey -v testvalue
 go test -run=XXX -bench=. -benchmem -cpuprofile profile2.out -memprofile memprofile2.out
 go test -race -run=TestRaceDetector 
 ```
+
+### swagger commands
+```bash
+// Convert yaml to json
+cd package/service/swagger/converter
+go run converter-main.go
+
+// Run docker with swagger inside
+docker run -it -p 81:8080 -e SWAGGER_JSON=/foo/swagger.json -v C:\sandbox\kvcache\pkg\service\swagger\:/foo swaggerapi/swagger-ui
+
+
+// Generate go api for a specific openapi documentation:
+swagger>oapi-codegen openapi.yaml > openapi.gen.go
+```
